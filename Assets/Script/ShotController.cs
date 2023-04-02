@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.Serialization;
 
 public class ShotController : MonoBehaviour
 {
@@ -9,9 +10,9 @@ public class ShotController : MonoBehaviour
 
         [SerializeField, Header("バーチャルカメラ")] CinemachineVirtualCamera[] _cVCamera;
         [SerializeField,Header("撃つ弾")] GameObject _bullet;
-        [SerializeField,Header("バズーカー")] GameObject _bazooka;
+        [SerializeField,Header("銃")] GameObject _gun;
         [SerializeField,Header("弾の強さ")] int _power = 700;
-        [SerializeField] GameObject _scope;
+        //[SerializeField] GameObject _scope;
         [SerializeField] GameObject _camera;
         
         float _cameraChangeTime = 0.6f;
@@ -58,17 +59,17 @@ public class ShotController : MonoBehaviour
 
             if (Input.GetMouseButton(0) && IsFire)
             {
-                _bazooka.SetActive(false);
-                _scope.SetActive(true);
+                _gun.SetActive(false);
+               // _scope.SetActive(true);
             }
 
             else if (Input.GetMouseButtonUp(0) && IsFire)
             {
-                _bazooka.SetActive(true);
+                _gun.SetActive(true);
                 _fireCount++;
                 GameObject bullet = Instantiate(_bullet, new Vector3(0, 0.25f, 1), _camera.transform.rotation);
                 bullet.GetComponent<Bullet>().Shoot(_power);
-                _scope.SetActive(false);
+               // _scope.SetActive(false);
                 IsFire = false;
                 _cVCamera[1].Priority = 0;
                 IsCameraChuck = true;
