@@ -15,6 +15,7 @@ public class ShotController : MonoBehaviour
         //[SerializeField] GameObject _scope;
         [SerializeField] GameObject _camera;
         
+        
         float _cameraChangeTime = 0.6f;
         int _fireCount = 0;
         bool IsFire = false;
