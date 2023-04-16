@@ -1,18 +1,35 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public event Action OnGameClear;
+
+    public event Action OnGameOver;
+
+    private bool IsGameFinish;
+
+    public void GameClear()
     {
-        string[,] a = new string[4, 9];
+        if (IsGameFinish)
+        {
+            Debug.Log("すでにゲームがクリア又はゲームオーバーしているのGameClear()は呼び出せません");
+            return;
+        }
+        IsGameFinish = true;
+        OnGameClear?.Invoke();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void GaneOver()
     {
-        
+        if (IsGameFinish)
+        {
+            Debug.Log("すでにゲームがクリア又はゲームオーバーしているのGaneOver()は呼び出せません");
+            return;
+        }
+        IsGameFinish = true;
+        OnGameOver?.Invoke();
     }
 }
