@@ -8,13 +8,23 @@ public class ShotController : MonoBehaviour
 {
     #region Properties
 
-        [SerializeField, Header("バーチャルカメラ")] CinemachineVirtualCamera[] _cVCamera;
-        [SerializeField,Header("撃つ弾")] GameObject _bullet;
-        [SerializeField,Header("銃")] GameObject _gun;
-        [SerializeField,Header("弾の強さ")] int _power = 700;
-        //[SerializeField] GameObject _scope;
-        [SerializeField] GameObject _camera;
+        [SerializeField] 
+        GameObject _camera;
+       
+        [SerializeField, Header("バーチャルカメラ")] 
+        CinemachineVirtualCamera[] _cVCamera;
         
+        [SerializeField,Header("撃つ弾")] 
+        GameObject _bullet;
+        
+        [SerializeField,Header("銃")] 
+        GameObject _gun;
+        
+        [SerializeField,Header("弾の打てる数")] 
+        private int _gameOverCount; 
+        
+        [SerializeField,Header("弾の強さ")] 
+        int _power = 700;
         
         float _cameraChangeTime = 0.6f;
         int _fireCount = 0;
@@ -33,6 +43,8 @@ public class ShotController : MonoBehaviour
         #region Private Methods
         void Fire()
         {
+            if (_fireCount >= _gameOverCount )
+                return;
             if (Input.GetMouseButton(0))
             {
                 _cVCamera[1].Priority = 10;
@@ -48,9 +60,10 @@ public class ShotController : MonoBehaviour
 
             else if (Input.GetMouseButtonUp(0) && _cameraChangeTime >= 0)
             {
+                float cashTime = _cameraChangeTime;
                 _cVCamera[0].Priority = 10;
                 _cVCamera[1].Priority = 0;
-                _cameraChangeTime = 0.6f;
+                _cameraChangeTime = cashTime;
             }
 
             if (_cameraChangeTime <= 0)
@@ -61,7 +74,6 @@ public class ShotController : MonoBehaviour
             if (Input.GetMouseButton(0) && IsFire)
             {
                 _gun.SetActive(false);
-               // _scope.SetActive(true);
             }
 
             else if (Input.GetMouseButtonUp(0) && IsFire)
@@ -70,7 +82,6 @@ public class ShotController : MonoBehaviour
                 _fireCount++;
                 GameObject bullet = Instantiate(_bullet, new Vector3(0, 0.25f, 1), _camera.transform.rotation);
                 bullet.GetComponent<Bullet>().Shoot(_power);
-               // _scope.SetActive(false);
                 IsFire = false;
                 _cVCamera[1].Priority = 0;
                 IsCameraChuck = true;

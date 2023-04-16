@@ -1031,13 +1031,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae380a458ecf0e4ea31509d1e2902bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _camera: {fileID: 330585543}
   _cVCamera:
   - {fileID: 1625541764}
   - {fileID: 1667808582}
   _bullet: {fileID: 9117611689496168044, guid: 322149768db90d342afb871afcba2500, type: 3}
   _gun: {fileID: 1212253904}
+  _gameOverCount: 5
   _power: 20
-  _camera: {fileID: 330585543}
 --- !u!4 &812164579
 Transform:
   m_ObjectHideFlags: 0
