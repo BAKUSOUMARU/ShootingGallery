@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class GameManager : SingletonMonoBehaviour<GameManager>
 {
+    [SerializeField] 
+    private GameObject _gameClearUI;
+    
+    [SerializeField] 
+    private GameObject _gameOverUI;
+    
     public event Action OnGameClear;
 
     public event Action OnGameOver;
@@ -18,6 +24,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
             Debug.Log("すでにゲームがクリア又はゲームオーバーしているのGameClear()は呼び出せません");
             return;
         }
+        _gameClearUI?.SetActive(true);
         IsGameFinish = true;
         OnGameClear?.Invoke();
     }
@@ -29,6 +36,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
             Debug.Log("すでにゲームがクリア又はゲームオーバーしているのGaneOver()は呼び出せません");
             return;
         }
+        _gameOverUI.SetActive(true);
         IsGameFinish = true;
         OnGameOver?.Invoke();
     }

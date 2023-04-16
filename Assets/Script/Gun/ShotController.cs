@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,6 +35,7 @@ public class ShotController : MonoBehaviour
         #endregion
 
         #region Unity Methods
+
         void Update()
         {
             Fire();
@@ -41,9 +43,10 @@ public class ShotController : MonoBehaviour
         #endregion
 
         #region Private Methods
+
         void Fire()
         {
-            if (_fireCount >= _gameOverCount )
+            if (_fireCount >= _gameOverCount)
                 return;
             if (Input.GetMouseButton(0))
             {
