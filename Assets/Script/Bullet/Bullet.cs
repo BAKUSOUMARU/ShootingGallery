@@ -10,9 +10,7 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.TryGetComponent(out Goods ai))
         {
             _bombInstantiatePosition = this.transform.position;
-            
             ScoreModel.Instance.AddScore(10);
-            Destroy(this.gameObject);
         }
     }
 
