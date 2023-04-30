@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class GameManager : SingletonMonoBehaviour<GameManager>
 {
-    [SerializeField] 
-    private GameObject _gameClearUI;
-    
-    [SerializeField] 
-    private GameObject _gameOverUI;
+    // [SerializeField] 
+    // private GameObject _gameClearUI;
+    //
+    // [SerializeField] 
+    // private GameObject _gameOverUI;
     
     public event Action OnGameClear;
 
@@ -21,23 +21,31 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     {
         if (IsGameFinish)
         {
+            Debug.Log(IsGameFinish);
             Debug.Log("すでにゲームがクリア又はゲームオーバーしているのGameClear()は呼び出せません");
             return;
         }
-        _gameClearUI?.SetActive(true);
+        Debug.Log("Unity");
+        //_gameClearUI?.SetActive(true);
         IsGameFinish = true;
         OnGameClear?.Invoke();
     }
 
-    public void GaneOver()
+    public void GameOver()
     {
         if (IsGameFinish)
         {
             Debug.Log("すでにゲームがクリア又はゲームオーバーしているのGaneOver()は呼び出せません");
             return;
         }
-        _gameOverUI.SetActive(true);
+        //_gameOverUI.SetActive(true);
         IsGameFinish = true;
         OnGameOver?.Invoke();
+    }
+
+    public void FlagReset()
+    {
+        IsGameFinish = false;
+        Debug.Log("Resetしたよ");
     }
 }

@@ -15,28 +15,29 @@ public class Goods : MonoBehaviour
     #endregion
     
     #region Member Variables
-    // ƒvƒ‰ƒCƒx[ƒg‚Èƒƒ“ƒo[•Ï”B
+    // ãƒ—ãƒ©ã‚¤ãƒ™ãƒ¼ãƒˆãªãƒ¡ãƒ³ãƒãƒ¼å¤‰æ•°ã€‚
+
     #endregion
     
     #region Constant
-    // ’è”‚ğ‚¢‚ê‚éB
+    // å®šæ•°ã‚’ã„ã‚Œã‚‹ã€‚
     #endregion
     
     #region Events
-    //  System.Action, System.Func ‚È‚Ç‚ÌƒfƒŠƒQ[ƒg‚âƒR[ƒ‹ƒoƒbƒNŠÖ”‚ğ‚¢‚ê‚é‚Æ‚±‚ëB
+    //  System.Action, System.Func ãªã©ã®ãƒ‡ãƒªã‚²ãƒ¼ãƒˆã‚„ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯é–¢æ•°ã‚’ã„ã‚Œã‚‹ã¨ã“ã‚ã€‚
     #endregion
     
     #region Enums
     /// <summary>
-    /// ƒOƒbƒY‚Ìí—Ş
+    /// ã‚°ãƒƒã‚ºã®ç¨®é¡
     /// </summary>
     public enum Type
     {
-        //¦‰¼‚Å–¼‘O‚ğ•t‚¯‚Ä‚¢‚é‚¾‚¯‚È‚Ì‚ÅAŒ»ó‚ÍƒŠƒXƒg‚ÌC³‚Í‚¢‚Â‚Å‚à‰Â
+        //â€»ä»®ã§åå‰ã‚’ä»˜ã‘ã¦ã„ã‚‹ã ã‘ãªã®ã§ã€ç¾çŠ¶ã¯ãƒªã‚¹ãƒˆã®ä¿®æ­£ã¯ã„ã¤ã§ã‚‚å¯
 
-        /// <summary>‚Ê‚¢‚®‚é‚İ</summary>
+        /// <summary>ã¬ã„ãã‚‹ã¿</summary>
         StuffedToy,
-        /// <summary>‚¨‰Ùq</summary>
+        /// <summary>ãŠè“å­</summary>
         Sweets,
         /// <summary>Toy</summary>
         Toy
@@ -44,20 +45,20 @@ public class Goods : MonoBehaviour
     #endregion
 
     #region Unity Methods
-    //  Start, Update‚È‚Ç‚ÌUnity‚ÌƒCƒxƒ“ƒgŠÖ”B
+    //  Start, Updateãªã©ã®Unityã®ã‚¤ãƒ™ãƒ³ãƒˆé–¢æ•°ã€‚
 
     private void Start()
     {
-        ChangeMaterial(_goodsType);
+        ChangeMaterial(_goodsType); 
     }
     #endregion
 
     #region Public Methods
-    //@©g‚Åì¬‚µ‚½Public‚ÈŠÖ”‚ğ“ü‚ê‚éB
+    //ã€€è‡ªèº«ã§ä½œæˆã—ãŸPublicãªé–¢æ•°ã‚’å…¥ã‚Œã‚‹ã€‚
     #endregion
 
     #region Private Methods
-    // ©g‚Åì¬‚µ‚½Private‚ÈŠÖ”‚ğ“ü‚ê‚éB
+    // è‡ªèº«ã§ä½œæˆã—ãŸPrivateãªé–¢æ•°ã‚’å…¥ã‚Œã‚‹ã€‚
 
     void ChangeMaterial(Type type)
     {
