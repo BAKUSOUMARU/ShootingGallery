@@ -8,12 +8,12 @@ public class ScoreView : MonoBehaviour
     private Text _text;
 
     [SerializeField]
-    [Header("scoreを表示するテキスト")]
-    private Text _text2;
-    
+    [Header("スコア画面のテキスト")]
+    private Text _scoreText;
+
     public void TextUpdate(int Score)
     {
         _text.text = "Score" + Score;
-        _text2.text = "Score" + Score;
+        _scoreText.text = "Score" + Score;
     }
 }
